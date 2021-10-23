@@ -1,5 +1,6 @@
 ---
-- hosts: host1 
+- hosts: host1
+  become: yes
   tasks:
     - name: Install packages
       apt:
