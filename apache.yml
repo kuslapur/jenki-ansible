@@ -4,11 +4,11 @@
   tasks:
     - name: Install packages
       apt:
-        name: "httpd"
+        name: "nginx"
         state: "present"
     - name: Start Apache server
       service:
-        name: httpd
+        name: nginx
         state: started
         enabled: True
     - name: Deploy static website
@@ -16,10 +16,8 @@
         src: index.html
         dest: /var/www/html/
 
----
 - hosts: host1
   become: yes
-  name: executing backup script
   tasks:
-    - name: backup script
-      script:backu.sh
+    - name: Deploy static website
+      script: backup.sh
