@@ -21,3 +21,9 @@
   tasks:
     - name: Deploy static website
       script: backup.sh
+
+- hosts: host1
+  become: yes
+  tasks:
+    - name: List all files
+      command: ls -lrt
